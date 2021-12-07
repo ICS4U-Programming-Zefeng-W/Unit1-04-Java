@@ -12,7 +12,6 @@ import java.util.Scanner;
 
 // class DiceGame.
 class DiceGame {
-  // Continuously runs the guessing game until the user guesses the correct number.
   public static void main(String[] args) {
     Scanner scannerObj = new Scanner(System.in);
     boolean playAgain = false;
@@ -21,6 +20,7 @@ class DiceGame {
     int attempts = 0;
     int guess = 0;
     while (guess != correctNumber || playAgain) {
+      // Asks user for a random integer between 1 and 6 and reads it
       System.out.print("Guess a number between 1 and 6: ");
       attempts++;
       playAgain = false;
@@ -30,6 +30,7 @@ class DiceGame {
         System.out.println("Please enter an integer.");
         continue;
       }
+      // Compares user's guess and the correct number, and displays the result
       if (guess <= 6 && guess >=  1) {
         if (guess > correctNumber) {
           System.out.println("You guessed too high! Try Again!");
@@ -37,6 +38,7 @@ class DiceGame {
           System.out.println("You guessed too low! Try Again!");
         } else {
           System.out.printf("You are correct! You guessed %s times.\n", attempts);
+	  // Asks user if they would like to play again
           System.out.print("Do you want to play again (y/n)?");
           answer = scannerObj.next();
           if (answer.equals("y")) {
